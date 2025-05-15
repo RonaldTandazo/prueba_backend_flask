@@ -11,4 +11,5 @@
 
 4. Levantar el proyecto con el comando: python main.py
 
-NOTA: Las credenciales utilizadas en el .env para la conexión a la DB corresponden a la plataforma Supabase, la cual proporciona servicios de DB PGSQL Online
+NOTA:     
+    -   Las credenciales utilizadas en el .env para la conexión a la DB corresponden a una DB personal en la plataforma Supabase, la cual proporciona servicios de DB PGSQL Online
