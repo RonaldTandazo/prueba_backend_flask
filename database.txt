@@ -1,0 +1,41 @@
+-- Tabla agents
+CREATE TABLE agents (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE,
+    status ENUM('active', 'inactive') DEFAULT 'active'
+);
+
+-- Tabla policies
+CREATE TABLE policies (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    submission_number VARCHAR(255) NOT NULL UNIQUE,
+    effective_date DATE NOT NULL,
+    expiration_date DATE NOT NULL,
+    agent_id INT NOT NULL,
+    status ENUM('Quoting', 'Quote Issued', 'Policy Issued') NOT NULL DEFAULT 'Quoting',
+    FOREIGN KEY (agent_id) REFERENCES agents(id)
+);
+
+-- Tabla policy_status_history
+CREATE TABLE policy_status_history (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    policy_id INT NOT NULL,
+    status ENUM('Quoting', 'Quote Issued', 'Policy Issued') NOT NULL,
+    entered_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (policy_id) REFERENCES policies(id)
+);
+
+-- Query
+Select 
+    p.submission_number,
+    p.effective_date,
+    p.expiration_date,
+    a.email as agent_email,
+    a.status as agent_status,
+    ph.entered_at as quote_issued_date
+From policies p
+Join policy_status_history ph on p.id = ph.policy_id and ph.status = 'Quote Issued'
+Join agents a on p.agent_id = a.id and a.status = 'active'
+
+The queries for creating tables and the selection query can be found in the database.txt file of the Flask project.
