@@ -10,3 +10,5 @@
     - pip install -r requirements.txt
 
 4. Levantar el proyecto con el comando: python main.py
+
+NOTA: Las credenciales utilizadas en el .env para la conexión a la DB corresponden a la plataforma Supabase, la cual proporciona servicios de DB PGSQL Online
