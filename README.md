@@ -1,5 +1,12 @@
-Este es el backend.
+1. Crear el entorno virtual, aplicar este comando: 
+    - Linux o Mac: python3 -m venv venv
+    - Windows: python -m venv venv
 
-Recuerda instalar flask, flask_cors y cualquier otra dependencia necesaria de ser el caso.
+2. Activar el entorno virtual, aplicar este comando:
+    - Linux o Mac: source venv/bin/activate
+    - Windows: venv\Scripts\activate
 
-Ejecuta el comando: python main.py para levantar el proyecto
+3. Por último instalar las dependencias, aplicar el comando:
+    - pip install -r requirements.txt
+
+4. Levantar el proyecto con el comando: python main.py
