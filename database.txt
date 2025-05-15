@@ -37,5 +37,3 @@ Select
 From policies p
 Join policy_status_history ph on p.id = ph.policy_id and ph.status = 'Quote Issued'
 Join agents a on p.agent_id = a.id and a.status = 'active'
-
-The queries for creating tables and the selection query can be found in the database.txt file of the Flask project.
